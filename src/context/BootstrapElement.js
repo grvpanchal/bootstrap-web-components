@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { LitElement, property } from 'lit-element';
 export { html } from 'lit-html';
 import StyleShelter from './style-shelter';
-import './bootstrap.css';
 const observedForElements = new Set();
 const updateRTL = () => {
     const dir = document.documentElement.dir === 'rtl'
@@ -73,10 +72,9 @@ export function SpectrumMixin(constructor) {
                 }
                 this._dirParent = dirParent;
             }
-            console.log('executed');
-            // const styles = ['./base.css'];
-            // StyleShelter.adopt(styles, this.shadowRoot);
             super.connectedCallback();
+            const styles = ['/assets/css/bootstrap.css'];
+            StyleShelter.adopt(styles, this.shadowRoot);
         }
         disconnectedCallback() {
             super.disconnectedCallback();

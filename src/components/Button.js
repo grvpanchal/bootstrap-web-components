@@ -23,7 +23,6 @@ class Button extends BootstrapElement {
     }
 
     return html`
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" />
       <button type="button" class="btn ${variantString}" ?disabled=${this.disabled}><slot></slot></button>
     `;
   }

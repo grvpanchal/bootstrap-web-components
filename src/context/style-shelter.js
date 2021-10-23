@@ -119,7 +119,7 @@ export default {
         } else {
             const sheet = new CSSStyleSheet();
 
-            const documentSheet = Array(...document.styleSheets).find(styleSheet => styleSheet.href.includes(url));
+            const documentSheet = Array(...document.styleSheets).find(styleSheet => styleSheet && styleSheet.href && styleSheet.href.includes(url));
             if (documentSheet) {
               sheet.replace(Array(...documentSheet.rules).map(rule => rule.cssText).join(' '));
               this._dict.set(url, sheet);
