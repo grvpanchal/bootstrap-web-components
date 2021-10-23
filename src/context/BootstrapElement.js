@@ -8,6 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { LitElement, property } from 'lit-element';
+export { html } from 'lit-html';
 import StyleShelter from './style-shelter';
 import './bootstrap.css';
 const observedForElements = new Set();

@@ -1,5 +1,4 @@
-import { html } from "lit-element";
-import { BootstrapElement } from '../context/BootstrapElement';
+import { BootstrapElement, html } from '../context/BootstrapElement';
 
 class Button extends BootstrapElement {
   constructor() {
