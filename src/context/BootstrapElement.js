@@ -7,8 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { LitElement, property } from 'lit-element';
-export { html } from 'lit-html';
+import { LitElement } from 'lit';
+export { html } from 'lit';
 import StyleShelter from './style-shelter';
 const observedForElements = new Set();
 const updateRTL = () => {
@@ -33,6 +33,7 @@ export function SpectrumMixin(constructor) {
             /**
              * @private
              */
+            this.componentName = arguments && arguments[0];
             this.dir = 'ltr';
 
         }
@@ -73,8 +74,11 @@ export function SpectrumMixin(constructor) {
                 this._dirParent = dirParent;
             }
             super.connectedCallback();
-            const styles = ['/assets/css/bootstrap.css'];
-            StyleShelter.adopt(styles, this.shadowRoot);
+            if (!this.componentName) {
+                const styles = ['/assets/css/base.css'];
+                StyleShelter.adopt(styles, this.shadowRoot, { append: [this.shadowRoot] });
+
+            }
         }
         disconnectedCallback() {
             super.disconnectedCallback();
@@ -90,7 +94,6 @@ export function SpectrumMixin(constructor) {
         }
     }
     __decorate([
-        property({ reflect: true }),
         __metadata("design:type", String)
     ], SlotTextObservingElement.prototype, "dir", void 0);
     return SlotTextObservingElement;
