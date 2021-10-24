@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { LitElement } from 'lit';
 export { html } from 'lit';
-import StyleShelter from './style-shelter';
+import StyleShelter from 'style-shelter';
 const observedForElements = new Set();
 const updateRTL = () => {
     const dir = document.documentElement.dir === 'rtl'

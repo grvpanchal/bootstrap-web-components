@@ -1,19 +1,25 @@
-// rollup.config.js
 import litcss from 'rollup-plugin-lit-css';
-import Sass from 'sass';
+import sass from 'sass';
+import copy from 'rollup-plugin-copy';
 
 export default {
-  input: 'src/**/*.js',
+  input: ['src/index.js'],
   output: {
     dir: 'dist',
-    format: 'esm'
+    format: 'esm',
+    preserveModules: true,
   },
   plugins: [
     litcss({
       include: '/**/*.scss',
       transform: (data, { filePath }) =>
-        Sass.renderSync({ data, file: filePath })
+        sass.renderSync({ data, file: filePath })
           .css.toString(),
+    }),
+    copy({
+      targets: [
+          { src: './public/*', dest: 'dist' },
+      ]
     }),
   ]
 }

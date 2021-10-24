@@ -1,9 +1,15 @@
-import { BootstrapElement, html } from '../context/BootstrapElement';
+import { BootstrapElement, html } from 'bootstrap-element';
+
+import ButtonStyle from '../scss/Button.scss';
 
 class Button extends BootstrapElement {
   constructor() {
-    super();
+    super('button');
     this.color = 'primary';
+  }
+
+  static get styles() {
+    return [ButtonStyle];
   }
 
   static get properties() {
