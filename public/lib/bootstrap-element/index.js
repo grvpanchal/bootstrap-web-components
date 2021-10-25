@@ -75,7 +75,7 @@ export function SpectrumMixin(constructor) {
             }
             super.connectedCallback();
             if (!this.componentName) {
-                const styles = ['/assets/css/base.css'];
+                const styles = ['/assets/css/bootstrap.css'];
                 StyleShelter.adopt(styles, this.shadowRoot, { append: [this.shadowRoot] });
 
             }
