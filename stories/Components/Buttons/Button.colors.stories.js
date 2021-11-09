@@ -2,7 +2,7 @@ import { html } from "lit";
 import '../../../src/components/Button';
 
 export default {
-  title: 'Components/Buttons/Colors',
+  title: 'Components/Buttons/FakeColor',
 };
 
 const NavItem = ({ label, variant, color='primary', disabled=false }) => html`

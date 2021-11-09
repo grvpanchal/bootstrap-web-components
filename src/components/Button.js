@@ -6,6 +6,7 @@ class Button extends BootstrapElement {
   constructor() {
     super('button');
     this.color = 'primary';
+    this.size = 'btn-md'
   }
 
   static get styles() {
@@ -18,18 +19,34 @@ class Button extends BootstrapElement {
       link: String,
       color: String,
       disabled: Boolean,
+      size:String,
     };
   }
-  render() {
-    let variantString = `btn-${this.color}`;
+
+  getVariantClass(){
+
     if(this.variant === 'outline') {
-      variantString = `btn-outline-${this.color}`
+      return `btn-outline-${this.color}`
     } else if(this.variant === 'text') {
-      variantString = `btn-link`
+      return `btn-link`
     }
+    if(this.size ==='small'){
+      return `btn-primary btn-sm`
+    }
+    else if(this.size ==='medium'){
+      return `btn-primary btn-md`
+    }
+    else if(this.size ==='large'){
+      return `btn-primary btn-lg`
+    }
+    return `btn-${this.color}`;
+  }
+  render() {
+    let variantString =   this.getVariantClass();
+    
 
     return html`
-      <button type="button" class="btn ${variantString}" ?disabled=${this.disabled}><slot></slot></button>
+      <button type="button" class="btn ${variantString}" ?disabled=${this.disabled} ><slot></slot></button>
     `;
   }
 }
